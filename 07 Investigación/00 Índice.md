@@ -11,7 +11,7 @@ descubrir.
 La regla completa está en [[Cómo mantener este vault]].
 
 **Toda fuente se archiva:** un enlace va a [[enlaces web]]; un PDF, DOCX, XLSX, CSV o similar va
-como archivo en `MiBeca-Conocimiento/docs/` con su fila en ese mismo registro.
+como archivo en `conocimiento MiBeca/docs/` con su fila en ese mismo registro.
 
 ## Plantilla
 

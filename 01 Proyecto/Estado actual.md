@@ -5,7 +5,8 @@ tags: [mibeca, proyecto, estado]
 # Estado actual
 
 Última verificación: **2026-10-30**. Backend `dev` y `origin/dev`: `130d2c9`.
-Frontend `dev` y `origin/dev`: `eb73b00`. Ambos checkouts están limpios.
+Frontend `dev` y `origin/dev`: `eb73b00`. Ambos checkouts tienen cambios
+documentales locales pendientes de commit; no se consideran cambios de aplicación.
 Fuentes: `openapi.yaml`, `specs/*/tasks.md`, `specs/*/quickstart.md` y código
 de cada repositorio. Publicar código en Git no demuestra un despliegue público.
 
@@ -14,8 +15,8 @@ de cada repositorio. Publicar código en Git no demuestra un despliegue público
 | Área | Estado |
 |---|---|
 | Contrato | OpenAPI **1.6.0**, canónico en backend |
-| Backend | Spec `001-becas-upb-management`: T001–T043 marcadas completas; evidencia de convergencia: 86 pruebas, lint, build y auditoría |
-| Frontend | Spec `001-becario-work-management`: T001–T034 marcadas completas; 158 pruebas en 19 archivos, lint, build y auditoría aprobados |
+| Backend | Spec `001-becas-upb-management`: T001–T051 marcadas completas; evidencia de convergencia: 86 pruebas, lint, build y auditoría |
+| Frontend | Spec `001-becario-work-management`: T001–T035 marcadas completas; 158 pruebas en 19 archivos, lint, build y auditoría aprobados |
 | Auth y usuarios | Sesiones opacas, contraseñas temporales, roles, administración y metas individuales |
 | Trabajos y postulaciones | Publicación, edición limitada, aceptación/rechazo y control de cupos |
 | Cierre y horas | Asistencia exhaustiva, transacción única, idempotencia y progreso basado exclusivamente en asistencia |

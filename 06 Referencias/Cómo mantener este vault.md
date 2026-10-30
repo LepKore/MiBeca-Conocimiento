@@ -37,7 +37,7 @@ Conocimiento sin fuente no se puede verificar ni actualizar. Por eso:
 | Tipo de fuente | Dónde se guarda |
 |---|---|
 | **Enlace web** | Una fila en `docs/enlaces web.md` — ver [[enlaces web]] |
-| **PDF, DOCX, XLSX, PPTX, CSV**, o cualquier archivo recibido | El **archivo** en `MiBeca-Conocimiento/docs/`, y su fila en `docs/enlaces web.md` |
+| **PDF, DOCX, XLSX, PPTX, CSV**, o cualquier archivo recibido | El **archivo** en `conocimiento MiBeca/docs/`, y su fila en `docs/enlaces web.md` |
 | Código o documento de los repos | No se copia: se enlaza la ruta. Ver [[Fuentes en el repositorio]] |
 
 Reglas de esa carpeta:

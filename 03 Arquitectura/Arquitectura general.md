@@ -15,7 +15,7 @@ ProyectoMiBeca/
 ├── gestion-de-trabajo-becario-web/      React 19 + Vite 8  → Firebase Hosting
 ├── gestion-de-trabajo-becario-backend/  Express 5 + PostgreSQL → Render / Supabase
 ├── base nuevo diseno frontend/          prototipo mock (NO es la app)
-└── MiBeca-Conocimiento/                 este vault
+└── conocimiento MiBeca/                  este vault
 ```
 
 **El frontend nunca habla con la base de datos.** Consume una API HTTP; la autorización

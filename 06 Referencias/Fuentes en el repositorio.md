@@ -23,7 +23,7 @@ esta tabla.
 | `docs/VERIFICACION_FASE_*.md` | ambos | Evidencia de lo que se probó realmente |
 | `docs/PLAN_MVP_MIBECA_V2.md` | backend | Referencia de decisiones v2; comprobar cada capacidad contra specs y código |
 | `AGENTS.md` | cada repo | Reglas para agentes |
-| `specs/001-becas-upb-management/` | backend | T001–T043 completas en backend `dev` `130d2c9`. Frontend: `specs/001-becario-work-management/`, T001–T034 completas en `eb73b00` |
+| `specs/001-becas-upb-management/` | backend | T001–T051 completas en backend `dev` `130d2c9`. Frontend: `specs/001-becario-work-management/`, T001–T035 completas en `eb73b00` |
 
 > [!warning] Los documentos históricos engañan
 > El plan v1 excluía evaluaciones; la spec `001-becas-upb-management` añadió
@@ -78,7 +78,7 @@ scripts/{start.js,validate-deploy-env.js}
 ```
 opencode.json                    MCP de ClickUp (proyecto)
 mibeca-becario.png               referencia visual
-MiBeca-Conocimiento/             este vault
+conocimiento MiBeca/             este vault
 ```
 
 ## Documentos que conviene leer en este orden

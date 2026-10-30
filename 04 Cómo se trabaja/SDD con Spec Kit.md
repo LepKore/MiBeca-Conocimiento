@@ -103,8 +103,8 @@ Los planes quedan como historia, no como fuente de tareas:
   documento se retirará al terminar; no se ejecuta desde ahí.
 
 El backend tiene `specs/001-becas-upb-management/` para evaluación, rating y
-cumplimiento: T001–T043 están marcadas completas en backend `dev` (`130d2c9`). Contextos todavía no tiene implementación ni migración `0004`.
-El frontend `dev` (`eb73b00`) tiene `specs/001-becario-work-management/` con T001–T034 completas y consume evaluación, rating y supervisión según OpenAPI 1.6.0.
+cumplimiento: T001–T051 están marcadas completas en backend `dev` (`130d2c9`). Contextos todavía no tiene implementación ni migración `0004`.
+El frontend `dev` (`eb73b00`) tiene `specs/001-becario-work-management/` con T001–T035 completas y consume evaluación, rating y supervisión según OpenAPI 1.6.0.
 
 ## Instalación (si hay que reinstalar)
 
