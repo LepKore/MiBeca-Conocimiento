@@ -16,7 +16,9 @@ tags: [mibeca, glosario]
 | **Cierre** | Acto único e irreversible del encargado al terminar el trabajo. Registra la asistencia de **todos** los aceptados en una transacción |
 | **Asistencia** | Registro por postulación aceptada: `asistio` + `minutos_acreditados`. Inmutable tras el cierre |
 | **Minutos acreditados** | Minutos que suman al progreso. Asistente: la duración completa del trabajo. Ausente: cero |
-| **Meta individual** | `meta_minutos` del estudiante. Entero positivo **múltiplo de 6**. Se fija al inscribir al becario y equivale a su **cuota de horas semestrales**. Cambiarla exige SQL; editar desde la app está fuera del alcance por ahora. Ver [[Visión y alcance]] |
+| **Meta individual** | `meta_minutos` del estudiante. Entero positivo **múltiplo de 6**. Se fija al inscribir al becario y equivale a su **cuota de horas semestrales**. El administrador puede cambiarla mediante `PATCH /users/{id}`; el progreso se recalcula sobre el historial. Ver [[Visión y alcance]] |
+| **Evaluación** | Cuatro criterios enteros de 1 a 5 registrados por el encargado propietario tras un cierre con asistencia confirmada. Una por postulación |
+| **Rating** | Promedio de evaluaciones disponibles entre los últimos diez trabajos realizados; con menos de diez, muestra `faltan realizar trabajos` |
 | **Excedente** | Lo que el estudiante acumuló por encima de su meta. Se informa **por separado**; nunca se resta a la meta ni se corrige |
 | **Progreso** | Suma de `asistencias.minutos_acreditados` de todas las postulaciones del estudiante |
 | **Código académico** | Exactamente **5 dígitos**, almacenado como **texto** para conservar ceros iniciales (`00123`) |

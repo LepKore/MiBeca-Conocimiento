@@ -11,7 +11,7 @@ descubrir.
 La regla completa está en [[Cómo mantener este vault]].
 
 **Toda fuente se archiva:** un enlace va a [[enlaces web]]; un PDF, DOCX, XLSX, CSV o similar va
-como archivo en `conocimiento MiBeca/docs/` con su fila en ese mismo registro.
+como archivo en `MiBeca-Conocimiento/docs/` con su fila en ese mismo registro.
 
 ## Plantilla
 
@@ -34,7 +34,7 @@ como archivo en `conocimiento MiBeca/docs/` con su fila en ese mismo registro.
 | **Estructura de proyecto Node.js** | [[Estructura de proyecto Node.js]] | 2026-10-29 | Por qué **no** migrar a `modules/`; qué reglas ya se cumplen; logging como deuda |
 | **Vite** | [[Vite - características]] | 2026-10-29 | Qué viene sin configurar y qué no (`tsc --noEmit` no está incluido) |
 | **SOLID en TypeScript** | [[SOLID en TypeScript]] | 2026-10-29 | Nombrar el diseño sin adoptar DI ni TypeScript |
-| **Estilo de JavaScript (Airbnb)** | [[Estilo de JavaScript (Airbnb)]] | 2026-10-29 | Reglas con efecto real; el backend no tiene linter |
+| **Estilo de JavaScript (Airbnb)** | [[Estilo de JavaScript (Airbnb)]] | 2026-10-29 | Reglas con efecto real; el backend ya usa ESLint |
 | **PostgreSQL, pool y RLS** | [[PostgreSQL, pool y RLS]] | 2026-10-29 | Pool compartido, grants mínimos, policies RLS y pruebas por tabla |
 | **Asistencia biométrica en universidades** (Kakepoto 2022) | [[Asistencia biométrica universitaria (Kakepoto 2022)]] | 2026-10-29 | Qué efectos tiene verificar asistencia; respalda el diseño de cierre sin vigilancia. PDF en `docs/` |
 | **Sistema web de becas EGPP** (UMSA, 2014) | [[Sistema web de becas EGPP]] | 2026-10-29 | Comparar convocatorias, postulantes, instituciones patrocinantes, reportes e historial. PDF en `docs/` |

@@ -71,11 +71,9 @@ resuelve el problema.
 
 ## Lo que sí vale la pena, aquí y ahora
 
-Una sola cosa: **si el backend no tiene linter, las discusiones de estilo se repiten en cada PR**. La
-salida barata no es Airbnb, es activar ESLint en el backend con la configuración plana mínima que ya
-usa el frontend (`@eslint/js` + `globals`), sin plugins de React. Eso son reglas compartidas con una
-sola dependencia, y `npm run lint` se puede meter en CI. Queda anotado como deuda, no como tarea de
-esta nota.
+El backend ya incorporó ESLint y `npm run lint`; la verificación local del bloque
+T016–T030 pasó en `130d2c9`. La guía de Airbnb sigue siendo una referencia opcional,
+no una configuración adoptada ni una razón para reescribir el proyecto.
 
 ## Límite
 

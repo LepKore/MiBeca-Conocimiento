@@ -37,7 +37,7 @@ Conocimiento sin fuente no se puede verificar ni actualizar. Por eso:
 | Tipo de fuente | Dónde se guarda |
 |---|---|
 | **Enlace web** | Una fila en `docs/enlaces web.md` — ver [[enlaces web]] |
-| **PDF, DOCX, XLSX, PPTX, CSV**, o cualquier archivo recibido | El **archivo** en `conocimiento MiBeca/docs/`, y su fila en `docs/enlaces web.md` |
+| **PDF, DOCX, XLSX, PPTX, CSV**, o cualquier archivo recibido | El **archivo** en `MiBeca-Conocimiento/docs/`, y su fila en `docs/enlaces web.md` |
 | Código o documento de los repos | No se copia: se enlaza la ruta. Ver [[Fuentes en el repositorio]] |
 
 Reglas de esa carpeta:
@@ -90,6 +90,18 @@ una nota vieja sin fuente es peor que ninguna.
 - **Tope de tamaño.** Si una nota pasa de ~200 líneas, dividir por tema y enlazar.
 - **Actualizar `Estado actual`** cuando cambia algo que el vault afirma como implementado.
   Ver [[Estado actual]].
+
+## Revisión antes de actualizar
+
+1. Leer `git status`, `HEAD` y la referencia remota local de ambos repositorios.
+2. Registrar rama y commit usados en la nota. Si el checkout está atrasado, verificar
+   primero la revisión que se quiere documentar; ausencia local no demuestra ausencia remota.
+3. Distinguir tareas marcadas completas, evidencia ejecutada y despliegue público.
+4. Actualizar las notas enlazadas cuando una decisión cambie permisos o contrato.
+5. Comprobar enlaces y `git diff --check`; guardar el cambio en Git mediante el flujo del equipo.
+
+El estado de referencia del 2026-10-30 es backend `130d2c9`, frontend `eb73b00` y
+OpenAPI 1.6.0. Las fechas históricas se conservan como evidencia de aquella revisión.
 
 ## Colores del grafo
 

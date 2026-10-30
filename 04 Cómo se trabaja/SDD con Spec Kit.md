@@ -102,8 +102,9 @@ Los planes quedan como historia, no como fuente de tareas:
 - `PLAN_MVP_MIBECA_V2.md` — **en desuso**. Su contenido se está migrando a specs y el
   documento se retirará al terminar; no se ejecuta desde ahí.
 
-Hoy `specs/` solo tiene `001-*` en cada repo. Las specs de `contextos` y `evaluaciones`
-(lo que el v2 describía) están pendientes de crear.
+El backend tiene `specs/001-becas-upb-management/` para evaluación, rating y
+cumplimiento: T001–T043 están marcadas completas en backend `dev` (`130d2c9`). Contextos todavía no tiene implementación ni migración `0004`.
+El frontend `dev` (`eb73b00`) tiene `specs/001-becario-work-management/` con T001–T034 completas y consume evaluación, rating y supervisión según OpenAPI 1.6.0.
 
 ## Instalación (si hay que reinstalar)
 

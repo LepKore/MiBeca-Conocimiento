@@ -38,22 +38,22 @@ el servidor.
 
 ## Fuera del MVP (no crear tablas, endpoints ni indicadores para esto)
 
-Calificaciones, reputación, penalizaciones por retiro o inasistencia, evaluaciones,
-registro público, notificaciones, correo, recuperación automática de contraseñas,
+Reputación pública, penalizaciones por retiro o inasistencia, registro público,
+notificaciones, correo, recuperación automática de contraseñas,
 archivos, exportaciones, reportes avanzados, calendario avanzado, múltiples
 instituciones, múltiples roles por cuenta, reasignación de encargados,
 retiro/cancelación de postulaciones, cancelación de trabajos y edición posterior de
 acreditaciones.
 
-El plan de un compañero proponía además calificaciones de 1 a 5, reputación del
-estudiante, reglas de retiro y reportes administrativos adicionales: **aplazados** a
-etapas futuras, sin reglas ni prioridad definidas.
+La spec `001-becas-upb-management` añadió evaluaciones de cuatro criterios y rating
+calculado al backend. La interfaz de evaluación y rating ya está integrada y verificada;
+reputación pública, retiro y penalizaciones siguen fuera del alcance actual.
 
 > [!warning] Trampa frecuente
-> `PLAN_MVP_MIBECA_V2.md` y los borradores anteriores existen en `docs/`, pero el
-> documento que describe **lo implementado** es `PLAN_MVP_MIBECA.md`. No inferir que un
-> documento propuesto describe algo real. El v2 además está **en desuso**: su contenido se
-> está migrando a `specs/`. Ver [[Fuentes en el repositorio]].
+> El plan v1 describe el flujo original, pero no todo el alcance actual. Para
+> evaluaciones, consultar la spec `001-becas-upb-management`, `openapi.yaml` 1.6.0 y
+> [[Estado actual]]. El v2 conserva decisiones de alcance que aún no se migraron,
+> especialmente contextos; no equivale por sí solo a funcionalidad terminada.
 
 ## La beca y la cuota de horas
 
@@ -64,7 +64,8 @@ su beca. En el sistema esa cuota se materializa como **meta individual en minuto
 (`estudiantes.meta_minutos`), **fijada al inscribir al becario**, en el momento del alta de
 la cuenta.
 
-Quién define el valor: el administrador, al crear la cuenta. No es un valor institucional
+Quién define el valor: el administrador, al crear la cuenta y, si corresponde, al
+editar el perfil del estudiante mediante `PATCH /users/{id}`. No es un valor institucional
 único que el sistema calcule.
 
 El **reglamento de becas** fija **50 h/semestre** de servicio becario en varias modalidades
@@ -85,15 +86,12 @@ horas becarias correspondientes.
 > El monto nuevo se negocia y decide fuera del sistema. La aplicación solo registra el
 > resultado.
 
-### Fuera del alcance (confirmado)
+### Edición de la meta
 
-**Editar la meta o la cuota desde la aplicación queda fuera del segundo MVP** por ahora. No
-hay que crear endpoint, formulario ni pantalla para eso. Ajustar el valor hoy exige SQL
-directo sobre `estudiantes`, y eso es deliberado.
-
-Fuera del alcance de la próxima etapa. Si alguna spec futura lo incluye, necesita decisión
-explícita del equipo: hoy no está en ningún spec y el v2 (en desuso) ya excluía cambios al
-cálculo de horas.
+El backend ya permite al administrador editar `metaMinutos` con `PATCH /users/{id}`.
+No hace falta SQL directo para esa operación. Si el equipo quiere prohibir cambios de
+meta en una etapa futura, debe decidirlo y modificar contrato, API y frontend de forma
+coordinada; una nota del vault no puede anular la ruta existente.
 
 ## Criterio de terminado
 

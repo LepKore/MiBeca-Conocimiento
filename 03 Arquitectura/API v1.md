@@ -5,7 +5,7 @@ tags: [mibeca, arquitectura, api]
 # API v1
 
 **Contrato canónico:** `gestion-de-trabajo-becario-backend/openapi.yaml` (OpenAPI 3.1,
-revisión **1.4.0**).
+revisión **1.6.0**, backend `dev` commit `130d2c9`).
 `docs/api-v1.md` es un resumen legible **subordinado** al contrato, no una fuente de
 verdad. Si hay discrepancia, manda `openapi.yaml`.
 
@@ -54,8 +54,10 @@ Todos bajo el prefijo `/api/v1`, excepto los de salud.
 | POST | `/jobs/{id}/applications` | BECARIO (postularse) |
 | POST | `/applications/{id}/accept` | ENCARGADO dueño |
 | POST | `/applications/{id}/reject` | ENCARGADO dueño |
-| GET | `/me/jobs` | Autenticado |
-| GET | `/me/applications` | Autenticado |
+| POST | `/applications/{id}/evaluation` | ENCARGADO dueño, tras cierre con asistencia confirmada |
+| GET | `/me/rating` | BECARIO autenticado; promedio agregado |
+| GET | `/me/jobs` | ENCARGADO |
+| GET | `/me/applications` | BECARIO |
 
 ### Control, progreso y supervisión
 
@@ -63,10 +65,11 @@ Todos bajo el prefijo `/api/v1`, excepto los de salud.
 |---|---|---|
 | POST | `/jobs/{id}/close` | ENCARGADO dueño (requiere `Idempotency-Key`) |
 | GET | `/jobs/{id}/attendance` | ENCARGADO dueño |
-| GET | `/me/progress` | Autenticado |
+| GET | `/me/progress` | BECARIO |
 | GET | `/me/dashboard` | ENCARGADO (métricas de sus trabajos) |
-| GET | `/me/history` | Autenticado |
+| GET | `/me/history` | BECARIO o ENCARGADO, con respuesta propia según rol |
 | GET | `/students/progress` | ADMIN (búsqueda, filtro de pendientes, paginación) |
+| GET | `/students/compliance` | ADMIN; cumplimiento de todos los becarios en una respuesta, sin evaluaciones |
 | GET | `/students/{id}/history` | ADMIN |
 
 ## Reglas de consumo
@@ -93,5 +96,7 @@ Forma única:
 - Códigos conocidos: `validation_error`, `database_unavailable`, `internal_error`,
   `ultimo_admin_activo` (409).
 - Nunca se devuelven trazas ni SQL.
+
+El frontend `dev` en `eb73b00` consume evaluación y rating de OpenAPI 1.6.0; evaluación persistida en asistencia e historial del propietario. ADMIN y becario no reciben evaluaciones individuales.
 
 Relacionado: [[Arquitectura general]] · [[Cierre, asistencia y horas]]

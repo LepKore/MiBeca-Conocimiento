@@ -4,88 +4,53 @@ tags: [mibeca, proyecto, estado]
 
 # Estado actual
 
-Última verificación de este vault: **2026-10-29**.
-Fuente principal: `docs/AI_CONTEXT.md` de cada repo, `docs/VERIFICACION_FASE_*.md` y el
-historial de git.
+Última verificación: **2026-10-30**. Backend `dev` y `origin/dev`: `130d2c9`.
+Frontend `dev` y `origin/dev`: `eb73b00`. Ambos checkouts están limpios.
+Fuentes: `openapi.yaml`, `specs/*/tasks.md`, `specs/*/quickstart.md` y código
+de cada repositorio. Publicar código en Git no demuestra un despliegue público.
 
-## Resumen
-
-Las fases 0 a 6 del plan están implementadas. El contrato OpenAPI va por la
-**revisión 1.4.0**. Todo corre en local contra PostgreSQL; **no hay despliegue a
-producción verificado**.
-
-## Implementado (con evidencia documentada)
+## Implementado y verificado
 
 | Área | Estado |
 |---|---|
-| Auth y usuarios (fase 2) | Login/logout, cambio obligatorio, reset, desactivación, último admin protegido. 25 pruebas de API en su momento |
-| Trabajos y postulaciones (fase 3) | Publicar, editar antes del inicio, postular, aceptar/rechazar con cupos seguros |
-| Control (fase 4) | Cierre transaccional con asistencia exhaustiva, idempotencia, progreso e historiales. Verificado en Chromium: 276/0 minutos para asistente/ausente |
-| Dashboards y supervisión (fase 5) | `GET /me/dashboard`, `GET /students/progress`, `GET /students/{id}/history`, paneles por rol |
-| Calidad y operación (fase 6) | CI de ambos repos, workflows Firebase, auditor de código, hooks Git/Codex |
-| Frontend | 19 archivos de prueba, **135 pruebas** en ~18 s; `lint` y `build` en verde |
-| Progreso de beca en postulantes | `GET /jobs/{id}/applications` incluye `semester`, `targetMinutes`, `accreditedMinutes`, `remainingMinutes` (aditivo, contrato 1.4.0) |
+| Contrato | OpenAPI **1.6.0**, canónico en backend |
+| Backend | Spec `001-becas-upb-management`: T001–T043 marcadas completas; evidencia de convergencia: 86 pruebas, lint, build y auditoría |
+| Frontend | Spec `001-becario-work-management`: T001–T034 marcadas completas; 158 pruebas en 19 archivos, lint, build y auditoría aprobados |
+| Auth y usuarios | Sesiones opacas, contraseñas temporales, roles, administración y metas individuales |
+| Trabajos y postulaciones | Publicación, edición limitada, aceptación/rechazo y control de cupos |
+| Cierre y horas | Asistencia exhaustiva, transacción única, idempotencia y progreso basado exclusivamente en asistencia |
+| Evaluación | Cuatro criterios 1–5 tras cierre y asistencia confirmada; estado persistido visible solo al encargado propietario |
+| Rating del becario | Promedio agregado; con menos de diez trabajos realizados muestra `faltan realizar trabajos` |
+| Supervisión ADMIN | Progreso e historial paginados, estados pendiente/completada/excedida; sin evaluaciones |
+| Cumplimiento API | `/students/compliance` devuelve una respuesta completa solo para ADMIN; la pantalla usa `/students/progress` e historial |
 
-## MVP v2: documento en desuso, su contenido pasa a specs
+## Verificación real del frontend
 
-`docs/PLAN_MVP_MIBECA_V2.md` (2026-10-23, v2.0) **está casi deprecado**. Su contenido se
-está **migrando a especificaciones** (`specs/` de cada repo, una carpeta por funcionalidad)
-y el documento se retirará cuando la migración termine. Por eso **no se ejecuta desde
-ahí**: el trabajo nuevo sale de un spec generado con `/speckit.specify` y repartido según
-[[Reparto de tareas]].
+El recorrido Chromium usó Vite temporal y PostgreSQL local descartable, con API
+real y sin mocks. Se verificaron login de tres roles, evaluación desde la asistencia
+del trabajo cerrado, persistencia después de recargar, historial del encargado,
+rating e historial del becario y supervisión ADMIN sin evaluaciones. A 390 px no
+hubo desbordamiento de página; la tabla es enfocable y el diálogo cierra con Escape.
 
-Hoy `specs/` solo tiene `001-*` en cada repo (`001-becas-upb-management` en backend,
-`001-becario-work-management` en web). Las specs 002 en adelante — contextos y
-evaluaciones — **todavía no existen**.
-
-Nada de lo que describe el v2 está en el código. Evidencia del 2026-10-29:
-
-| Qué exige el v2 | Estado real |
-|---|---|
-| Migración `0004_contextos.sql` | **No existe**. `migrations/` solo llega a `0003` |
-| Migración `0005_evaluaciones.sql` | **No existe** |
-| `openapi.yaml` en revisión **1.5.0** | Sigue en **1.4.0** |
-| Módulo `contextos` (taxonomía nueva) | No implementado |
-| Módulo `evaluaciones` (4 criterios, promedio) | No implementado |
-| UI de evaluaciones | No implementada |
-
-Es decir: el v2 es **intención documentada**, no trabajo entregado. Mientras se migra a
-specs se puede leer como referencia de alcance, pero **no como plan de ejecución**. Ver
-[[Fuentes en el repositorio]].
+La publicación, postulación, aceptación y cierre de la fixture se hicieron con la API
+real. Carga, vacío, error, reintento y paginación se verificaron con Vitest; no se
+forzaron errores del servidor real. El recorrido reproducible y sus límites están
+en `web/scripts/verify-integration.mjs`, `verify-integration.py` y el quickstart web.
 
 ## Pendiente o sin verificar
 
-> [!danger] Antes de cualquier despliegue
-> 1. **Rotar la contraseña de Supabase** que quedó expuesta en el chat el 2026-10-18.
-> 2. Resolver el nombre de los modos SSL: `DB_SSL_MODE=require` se comporta como
->    `verify-ca` del estándar, no como `require`. Ver [[Supabase]].
+- Taxonomía de contextos del plan v2: no existe `0004_contextos.sql`; siguen
+  `MATERIA/FACULTAD/AREA`. No confundir este alcance futuro con tareas abiertas de las specs cerradas.
+- CI remota, protección de ramas y despliegues públicos: no verificados en esta revisión.
+- Cobertura de código total: no equivale a tener todas las pruebas aprobadas; revisar configuración y política antes del siguiente relevo.
+- Cookies y CORS entre dominios de producción y previews: pendientes de validación real.
+- Antes de desplegar, confirmar la rotación de la contraseña de Supabase expuesta
+  históricamente y revisar la nomenclatura de los modos SSL. Ver [[Supabase]].
 
-- **Sin cobertura de pruebas configurada**: el equipo exige cobertura total antes de
-  publicar, pero `vitest.config.js` no tiene bloque `coverage`, no hay script `--coverage`,
-  la CI no la mide y el backend (`node:test`) tampoco. Es la deuda más urgente porque
-  bloquea la regla de relevo de [[Reparto de tareas]].
-- **CI remota nunca observada**: las ramas tienen commits locales sin publicar.
-- **Cookies entre dominios sin resolver**: si el frontend está en Firebase Hosting y la
-  API en otro dominio, las cookies de sesión de terceros pueden ser rechazadas. Hay que
-  decidir dominio/ruta antes de declarar producción funcional.
-- **CORS del preview de Firebase**: falta una política explícita para el origen dinámico
-  que genera Firebase; no se añadió comodín porque el backend valida orígenes exactos.
-- **`ApiError.detalles`** se transporta y se prueba, pero ningún formulario lo asigna
-  todavía a campos concretos.
-- **Verificación de fase 5 parcial**: las pruebas de integración que necesitan
-  PostgreSQL de prueba no se ejecutaron en esa sesión; el lint de Redocly tampoco por
-  falta de acceso al registry.
-- **Confianza de los hooks de Codex** sin verificar en el cliente; su matcher `Bash` no
-  cubre comandos lanzados desde PowerShell.
-- No se han verificado permisos/protección de rama en GitHub, secretos, ni accesos reales
-  a servicios.
+## Fuentes y vigencia
 
-## Decisiones funcionales ya cerradas
+El plan v1 conserva el flujo original; el plan v2 aporta decisiones de alcance.
+Las specs y el contrato concretan lo implementado. Para el estado actual, comprobar
+siempre commit, código y evidencia; `AI_CONTEXT.md` puede conservar entradas históricas.
 
-Código académico de cinco dígitos **como texto**; meta individual de demostración;
-contraseña temporal aleatoria entregada una sola vez por el administrador y reset
-administrativo; **una actividad y un cierre por trabajo**; vista limitada de
-postulantes; **sin correcciones de horas** en la aplicación; exceso de meta informado
-por separado.
-
-Relacionado: [[Visión y alcance]] · [[CI y CD]] · [[Reparto de tareas]] · [[Pruebas]]
+Relacionado: [[API v1]] · [[Modelo de datos]] · [[Pruebas]] · [[Fuentes en el repositorio]]

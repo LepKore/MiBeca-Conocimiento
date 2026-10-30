@@ -19,6 +19,8 @@ Los roles del código son los que valida el backend; ocultar un botón en el fro
 | Aceptar o rechazar postulaciones | No | Solo de trabajos propios | No |
 | Consultar asistencia y horas | Propias | De sus trabajos | Progreso global básico |
 | Crear y gestionar cuentas y metas | No | No | Sí |
+| Crear y ver evaluación individual | No | Solo de asistentes de sus trabajos cerrados | No |
+| Consultar rating agregado propio | Sí | No | No |
 | Alterar horas ya cerradas | No | No | **No** |
 
 ## Reglas duras tras la matriz
@@ -27,7 +29,7 @@ Los roles del código son los que valida el backend; ocultar un botón en el fro
 - **El rol es fijo tras el alta.** No se cambia después.
 - **El administrador no crea ni edita trabajos.** Esa es tarea del encargado.
 - **Nadie corrige horas cerradas**, ni el administrador. No existe endpoint de ajuste.
-- **El encargado ve del postulante solo**: nombre, código, carrera y estado. Nada más.
+- El listado del propietario incluye nombre, código, carrera, semestre, estado y progreso de beca; no expone credenciales. Asistencia e historial del encargado incluyen `evaluation` desde OpenAPI 1.6.0. ADMIN y becario no reciben evaluaciones individuales. Ver [[Evaluaciones y calificación]].
 - La API comprueba **rol + cuenta activa + propiedad** en cada operación.
 
 ## Rol y contexto no son lo mismo

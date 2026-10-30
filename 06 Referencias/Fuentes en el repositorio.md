@@ -11,8 +11,8 @@ esta tabla.
 
 | Documento | Repo | Autoridad |
 |---|---|---|
-| **`openapi.yaml`** (rev. 1.4.0) | backend | **Contrato técnico canónico**. Nada lo sustituye |
-| **`docs/PLAN_MVP_MIBECA.md`** | ambos (misma versión) | **Plan funcional canónico** |
+| **`openapi.yaml`** (rev. 1.6.0 en backend `dev` `130d2c9`) | backend | **Contrato técnico canónico**. Nada lo sustituye |
+| **`docs/PLAN_MVP_MIBECA.md`** | ambos (misma versión) | Plan del MVP v1; no describe por sí solo evaluación v2 |
 | **`docs/PLAN_DE_TRABAJO_MIBECA.md`** | backend | Numeración operativa de fases |
 | `.specify/memory/constitution.md` | cada repo | Principios de trabajo. **No iguales entre repos** |
 | `docs/AI_CONTEXT.md` | cada repo | Contexto de agentes; el más actualizado sobre estado |
@@ -21,14 +21,14 @@ esta tabla.
 | `docs/mvp-y-permisos.md` | backend | Resumen acordado del alcance (no es lo implementado) |
 | `docs/api-v1.md` | backend | **Subordinado** a `openapi.yaml` |
 | `docs/VERIFICACION_FASE_*.md` | ambos | Evidencia de lo que se probó realmente |
-| `docs/PLAN_MVP_MIBECA_V2.md`, `PLAN_CORRECCION_AUDITORIA.md` | ambos | **En desuso**. El v2 se está migrando a `specs/`; no es plan de ejecución |
+| `docs/PLAN_MVP_MIBECA_V2.md` | backend | Referencia de decisiones v2; comprobar cada capacidad contra specs y código |
 | `AGENTS.md` | cada repo | Reglas para agentes |
-| `specs/NNN-*/` | cada repo | **Vehículo del trabajo nuevo.** Hoy solo `001-*` en cada repo |
+| `specs/001-becas-upb-management/` | backend | T001–T043 completas en backend `dev` `130d2c9`. Frontend: `specs/001-becario-work-management/`, T001–T034 completas en `eb73b00` |
 
 > [!warning] Los documentos históricos engañan
-> `PLAN_MVP_MIBECA_V2.md` y el plan del compañero describen cosas que **no** están
-> implementadas (calificaciones, reputación, penalizaciones, Prisma, JWT). No implementar
-> nada de ahí sin pasar por `/speckit.specify`.
+> El plan v1 excluía evaluaciones; la spec `001-becas-upb-management` añadió
+> evaluación y rating al backend. Reputación pública, penalizaciones, Prisma y JWT
+> siguen fuera de lo implementado. Distinguir siempre plan, spec, contrato y código.
 >
 > El v2 no está deprecado porque sea incorrecto, sino porque **su contenido se está
 > moviendo a specs**. Lo que queda en el plan es referencia de alcance; lo que se ejecuta
@@ -42,6 +42,7 @@ esta tabla.
 migrations/0001_init.sql              usuarios, estudiantes, encargados, sesiones, auditoria
 migrations/0002_trabajos_postulaciones.sql
 migrations/0003_cierre_asistencia.sql cierres y asistencias
+migrations/0005_evaluaciones.sql    cuatro criterios y promedio
 src/app.js                            createApp: CORS, helmet, rutas, errores
 src/config.js                         appConfig(env)
 src/db.js                             pool, databaseConfig, isSupabaseHost
@@ -77,7 +78,7 @@ scripts/{start.js,validate-deploy-env.js}
 ```
 opencode.json                    MCP de ClickUp (proyecto)
 mibeca-becario.png               referencia visual
-conocimiento MiBeca/             este vault
+MiBeca-Conocimiento/             este vault
 ```
 
 ## Documentos que conviene leer en este orden

@@ -13,17 +13,23 @@ npm run audit:verify
 ```
 
 - Runner: **`node:test` nativo**. Comando exacto:
-  `node --env-file-if-exists=.env --test --test-concurrency=1 "test/*.test.js"`.
+  `node --env-file-if-exists=.env --test --test-concurrency=1 "test/*.test.js" "test/contracts/*.test.js"`.
 - **Concurrencia 1**: las suites comparten base de datos y no pueden correr en paralelo.
 - Requiere `TEST_DATABASE_URL` con una base **exclusiva y descartable**: el esquema se
   recrea en cada ejecución.
-- Los helpers (`test/helpers.js`) **rechazan hosts remotos** salvo
-  `TEST_ALLOW_REMOTE=true`, y ese permiso es solo para una base de pruebas.
+- Los helpers (`test/helpers.js`) **rechazan hosts remotos y bases no descartables**. No hay excepción `TEST_ALLOW_REMOTE`; solo admiten localhost y nombres `mibeca*_test*`.
 
 ### Archivos
 
 `api.test.js` · `jobs.test.js` · `control.test.js` · `phase5.unit.test.js` ·
-`database-safety.test.js` · `code-audit.test.js` · `codex-audit.test.js`
+`database-safety.test.js` · `code-audit.test.js` · `codex-audit.test.js` ·
+`authorization.test.js` · `jobs-evaluation.test.js` · `jobs-rating.test.js` ·
+`control-admin.test.js` · `contracts/evaluations.test.js`
+
+Evidencia backend: convergencia documentada de 86 pruebas en la spec, commit
+`130d2c9`. Frontend: 158 pruebas y recorrido Chromium, commit `eb73b00`.
+El recorrido `scripts/verify-integration.mjs` del frontend recrea exclusivamente
+el esquema de TEST_DATABASE_URL; consultar su quickstart antes de ejecutarlo.
 
 ## Frontend
 
@@ -36,10 +42,9 @@ npm run build      # vite build
 - Runner: **Vitest 5** con Testing Library y jsdom.
 - `vitest.config.js` usa `pool: 'threads'` y `maxWorkers: 4`. Los archivos que no tocan
   DOM declaran `@vitest-environment node`.
-- Última cifra documentada: **19 archivos, 135 pruebas, ~18 s**, cinco pasadas
-  consecutivas sin el timeout de worker.
+- Verificación de cierre 2026-10-30: **19 archivos, 158 pruebas**; lint, build y auditoría aprobados. Recorrido Chromium con tres roles sobre API y PostgreSQL local; evidencia y límites en el quickstart de la spec web.
 
-### Archivos (16)
+### Archivos (19)
 
 `sesion` · `postulaciones` · `postulaciones-paginacion` · `panel` · `jobs` ·
 `form-field` · `endpoints` · `docker-guard` · `dialog-accessibility` · `deploy-env` ·

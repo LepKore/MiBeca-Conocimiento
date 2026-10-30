@@ -61,8 +61,8 @@ npm.
 
 ## Qué NO está verificado
 
-- **Ninguna ejecución remota de GitHub Actions** ha sido observada. Las ramas tienen
-  commits locales sin publicar.
+- **Ejecuciones remotas de GitHub Actions sin verificar en esta revisión**. Backend
+  `dev` coincide con `origin/dev` en `130d2c9`; el push no demuestra CI verde.
 - Protección de ramas, revisores requeridos y secretos de GitHub: sin comprobar.
 - CORS del dominio de preview de Firebase: pendiente (el backend valida orígenes exactos
   y no se añadió comodín).

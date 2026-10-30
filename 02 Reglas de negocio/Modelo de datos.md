@@ -4,7 +4,7 @@ tags: [mibeca, reglas, datos]
 
 # Modelo de datos
 
-Fuente: los tres archivos de `gestion-de-trabajo-becario-backend/migrations/`.
+Fuente: `gestion-de-trabajo-becario-backend/migrations/0001` a `0003` y `0005_evaluaciones.sql` en `dev` (`130d2c9`). No existe `0004_contextos.sql`.
 Convenciones globales: **UUID**, **UTC** (`timestamptz`), **duraciones en minutos
 enteros**. No se usa Prisma ni ORM; el historial de migraciones vive en la tabla
 `schema_migrations`.
@@ -75,6 +75,13 @@ para el listado paginado estable.
 - El `CHECK` de minutos es la regla de negocio más importante del esquema: ver
   [[Cierre, asistencia y horas]].
 
+### `evaluaciones` (0005)
+
+`id` uuid PK · `postulacion_id` único → `postulaciones` · `evaluador_id` → `encargados` ·
+`responsabilidad`, `puntualidad`, `proactividad`, `comunicacion` (enteros 1–5) ·
+`promedio` generado · `creado_en`. La API solo permite crear una evaluación por
+postulación aceptada con asistencia confirmada tras el cierre; no expone edición ni borrado.
+
 ## Diagrama de dependencias
 
 ```
@@ -88,6 +95,7 @@ usuarios ──1:1──> estudiantes ──┐
              └──> cierres <─────┤ (trabajo_id)
                         │       │
                         └──> asistencias (postulacion_id PK)
+             postulaciones ──> evaluaciones (postulacion_id único)
 ```
 
 ## Reglas de esquema que no se deben romper

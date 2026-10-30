@@ -47,10 +47,11 @@ Consecuencias prácticas, que ya están alineadas con la constitución de ambos 
 
 La regla práctica: si dentro de seis meses no lo entiendes en una lectura, no entra.
 
-## Ramas existentes (verificado 2026-10-29)
+## Ramas locales (verificado 2026-10-30)
 
-Ambos repos: `main`, `dev`, `sergio` e `Ivan`, más los remotos. Los dos clones están en
-**`dev`**. La CI del frontend también corre en `sergio`.
+Los dos clones actuales tienen ramas locales `main` y `dev`, y están en **`dev`**.
+Las ramas personales descritas en documentación histórica no se presuponen presentes.
+Backend: `130d2c9`; frontend: `eb73b00`. Comprobar `git status` y referencias antes de cada relevo.
 
 Patrón de rama por tarea: `feat/...` y `fix/...`.
 

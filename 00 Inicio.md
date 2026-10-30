@@ -6,7 +6,7 @@ tags: [mibeca, indice]
 
 Plataforma institucional de la Universidad Privada Boliviana (UPB) para gestionar y
 hacer seguimiento del **trabajo becario**: publicación de trabajos, postulaciones,
-cierre con asistencia y acreditación de horas.
+cierre con asistencia, acreditación de horas y evaluación posterior del becario.
 
 > [!info] Origen de este vault
 > Construido el 2026-10-29 leyendo los repositorios `gestion-de-trabajo-becario-web`
@@ -17,7 +17,7 @@ cierre con asistencia y acreditación de horas.
 ## Empezar aquí
 - [[Visión y alcance]] — qué resuelve MiBeca y qué queda explícitamente fuera
 - [[Equipo]] — integrantes, ramas y reparto de trabajo
-- [[Estado actual]] — qué está implementado, con qué evidencia, qué falta
+- [[Estado actual]] — estado de backend `dev` (`130d2c9`), frontend y pendientes
 - [[Glosario]] — vocabulario del dominio
 
 ## Reglas de negocio
@@ -27,6 +27,7 @@ cierre con asistencia y acreditación de horas.
 - [[Trabajos y postulaciones]] — publicación, cupos, estados
 - [[Cierre, asistencia y horas]] — el corazón del sistema
 - [[Modelo de datos]] — tablas, restricciones e índices
+- [[Evaluaciones y calificación]] — criterios, persistencia, rating y privacidad
 
 ## Arquitectura
 - [[Arquitectura general]] — repos, stack, flujo de una petición
