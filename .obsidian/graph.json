@@ -1,0 +1,79 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#indice",
+      "color": {
+        "a": 1,
+        "rgb": 16777215
+      }
+    },
+    {
+      "query": "tag:#proyecto",
+      "color": {
+        "a": 1,
+        "rgb": 5017087
+      }
+    },
+    {
+      "query": "tag:#reglas",
+      "color": {
+        "a": 1,
+        "rgb": 5025616
+      }
+    },
+    {
+      "query": "tag:#arquitectura",
+      "color": {
+        "a": 1,
+        "rgb": 10250974
+      }
+    },
+    {
+      "query": "tag:#proceso",
+      "color": {
+        "a": 1,
+        "rgb": 16752453
+      }
+    },
+    {
+      "query": "tag:#procedimiento",
+      "color": {
+        "a": 1,
+        "rgb": 47273
+      }
+    },
+    {
+      "query": "tag:#investigacion",
+      "color": {
+        "a": 1,
+        "rgb": 14965919
+      }
+    },
+    {
+      "query": "tag:#referencia",
+      "color": {
+        "a": 1,
+        "rgb": 10395294
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.7132754626224379,
+  "close": true
+}

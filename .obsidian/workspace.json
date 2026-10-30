@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "fcb8d4937976314d",
+    "type": "split",
+    "children": [
+      {
+        "id": "8fb7b53c724b642c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1e028d38dc44412f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vista gráfica"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b16f0436c1a03b7c",
+    "type": "split",
+    "children": [
+      {
+        "id": "651639de2830c4bb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a1c6c45ec8d75f74",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "43e0c6015f66a367",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "2f0b903411d50f80",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "2ba24464dc86d792",
+    "type": "split",
+    "children": [
+      {
+        "id": "0aa865c975f637f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7a8381329571c40",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes"
+            }
+          },
+          {
+            "id": "1bb28298032d78e8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes"
+            }
+          },
+          {
+            "id": "c2530674e27bea61",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "0afeb08c24a1292c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "54d8fc3fb6b42d78",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "1e028d38dc44412f",
+  "lastOpenFiles": [
+    "docs/enlaces web.md",
+    "07 Investigación/PostgreSQL, pool y RLS.md",
+    "07 Investigación/Sistema web de becas EGPP.md",
+    "docs/2026-10-29 Sistema web gestion y difusion becas EGPP (2014).pdf",
+    "00 Inicio.md",
+    "02 Reglas de negocio/Reglamento de becas UPB.md",
+    "04 Cómo se trabaja/SDD con Spec Kit.md",
+    "04 Cómo se trabaja/Agentes y skills.md",
+    "docs/2026-10-29 Reglamento de Becas UPB (2016).pdf",
+    "06 Referencias/Prototipo de rediseño.md",
+    "06 Referencias/Fuentes en el repositorio.md",
+    "07 Investigación/Vite - características.md",
+    "07 Investigación/SOLID en TypeScript.md",
+    "07 Investigación/Ingeniería de prompts.md",
+    "07 Investigación/Estructura de proyecto Node.js.md",
+    "07 Investigación/Estilo de JavaScript (Airbnb).md",
+    "07 Investigación/Asistencia biométrica universitaria (Kakepoto 2022).md",
+    "07 Investigación/00 Índice.md",
+    "docs/2026-10-29 Kakepoto 2022 - Biometric attendance (GSSR).pdf",
+    "07 Investigación/Clockify.md",
+    "01 Proyecto/Visión y alcance.md",
+    "01 Proyecto/Glosario.md",
+    "01 Proyecto/Estado actual.md",
+    "01 Proyecto/Equipo.md",
+    "06 Referencias/Cómo mantener este vault.md",
+    "04 Cómo se trabaja/Reparto de tareas.md",
+    "07 Investigación",
+    "04 Cómo se trabaja/Ramas y PR.md",
+    "05 Procedimientos/Supabase.md",
+    "06 Referencias",
+    "04 Cómo se trabaja/Guardas y auditor de código.md",
+    "05 Procedimientos",
+    "04 Cómo se trabaja",
+    "03 Arquitectura",
+    "02 Reglas de negocio",
+    "01 Proyecto"
+  ]
+}
